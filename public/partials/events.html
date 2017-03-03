@@ -1,0 +1,30 @@
+<div class="mt-events">
+	<div class="mt-event magictime" ng-repeat="event in events | orderBy:date:true" mt-enter index="{{$index}}">
+		<div class="mt-event-heading">
+			<a href="" class="mt-heading-main" ng-click="setActive($index)">
+				<div class="mt-heading-main-wrapper">
+					<div mt-ellipsis-wrap class="mt-heading-talent-wrapper">
+						<span class="mt-event-talent" ng-repeat="talent in event.talent">{{talent}}</span>
+					</div>
+					<span class="mt-event-date">{{event.date | date}}</span>
+					<span class="mt-event-title">{{event.title}}</span>
+					<span class="mt-event-location">{{event.location}}</span>
+				</div>
+			</a>
+			<a href="https://{{event.ticketURL}}" class="mt-heading-tickets fa fa-ticket"></a>
+		</div>
+		<div class="mt-event-details-animation-wrap" uib-collapse="activeEventID!=$index">
+			<div class="mt-event-details" >
+				<div class="mt-wrapper">
+					<span class="mt-label">Venue</span>
+					<p class="mt-content">{{event.venue}}</p>
+				</div>
+				<div class="mt-wrapper">
+					<span class="mt-label">Description</span>
+					<p class="mt-content">{{event.description}}</p>
+				</div>
+				<!-- <pre>{{event | json}}</pre> -->
+			</div>
+		</div>
+	</div>
+</div>

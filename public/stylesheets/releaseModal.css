@@ -1,0 +1,137 @@
+.modal-large {
+	display: flex;
+    justify-content: center;
+    /*width: 500px;*/
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    border-radius: 0px;
+    border-width: 0px;
+    width: 500px;
+
+
+    font-family: futura;
+    font-size: 12px;
+    background-color: #f6f6f6;
+}
+
+.mt-modal-body {
+	margin: 25px 0px;
+}
+
+.mt-modal-body>* {
+    margin: 0px;
+    padding: 5px 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.mt-modal-label {
+	font-size: 8px;
+    font-family: "Zona Pro Bold";
+    width: 105px;
+    display: flex;
+    /*justify-content: flex-start;*/
+    align-items: center;
+    flex: 0 0 auto;
+
+}
+
+.mt-modal-cover {
+	height: 500px;
+	width: 500px;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+
+.mt-modal-description-body {
+
+}
+
+.mt-modal-release-name-wrap {
+    display: flex;
+    height: 30px;
+}
+
+.mt-modal-release-name {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.mt-modal-release-name-alt {
+	align-self: flex-end;
+}
+
+.mt-modal-talent-wrap{
+	height: 30px;
+	display: flex;
+}
+
+.mt-modal-talent {
+	font-size: 20px;
+	font-weight: bold;
+	/*align-self: flex-end;*/
+}
+
+.mt-modal-talent-container,
+.mt-modal-description-container,
+.mt-modal-tracks-container {
+	margin-bottom: 50px;
+}
+
+.mt-modal-description-container>.mt-modal-label {
+	align-items: flex-end;
+}
+
+.mt-modal-tracks-container {
+	display: flex;
+    flex-direction: column;
+    padding: 0px;
+    list-style-type: none;
+    counter-reset: trackno;
+}
+
+.mt-track::before {
+	content: counter(trackno);
+	position: absolute;
+    left: 0;
+    padding-left: 60px;
+}
+
+.mt-track {
+    padding: 10px 25px 10px 130px;
+    counter-increment: trackno;
+    overflow: hidden;
+    border-top: 1px solid #888;
+}
+
+.mt-track:hover {
+	color: #fff;
+	background-color: #888;
+}
+
+.mt-track-empty {
+	border-top: 1px solid #888;	
+}
+
+.mt-modal-tracks-container .mt-modal-label {
+	padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+.mt-modal-tracks-container .mt-track-index {
+
+}
+
+.mt-modal-tracks-container .mt-track-name {
+
+}
+
+
+

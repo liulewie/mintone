@@ -1,8 +1,454 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: "Zona Pro Bold";
+    src: url("fonts/zona_pro_fonts/Intelligent Design - Zona Pro Bold.otf") format("opentype");;
 }
 
-a {
-  color: #00B7FF;
+@font-face {
+    font-family: "Zona Pro Light";
+    src: url("fonts/zona_pro_fonts/Intelligent Design - Zona Pro Light.otf") format("opentype");;
 }
+
+@font-face {
+    font-family: "Zona Pro Thin";
+    src: url("fonts/zona_pro_fonts/Intelligent Design - Zona Pro Thin.otf") format("opentype");;
+}
+
+html {
+	font-size: 10px;
+  	height: 100%;
+}
+html body {
+	height: 100%;
+
+	max-width: 1080px;
+	margin: 0 auto !important;
+	float: none !important;
+
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+/*preloading the logo image to prevent flickering*/
+.mt-preload {
+	display: none;
+}
+
+/*styling navigation text*/
+.navbar-collapse>.navbar-nav>li>a {
+	color: #000;
+	text-transform: uppercase;
+	word-spacing: 2px;
+	font-family: "Zona Pro Bold";
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+/*styling navigation text when active*/
+.navbar-default .navbar-nav>li>a.active{
+	color: #777;
+}
+
+/*styling navigation text when hovered*/
+.navbar-default .navbar-nav>li>a:hover{
+	color: #777;
+}
+
+
+.mt-content {
+	/*width: 100%;*/
+	height: 100%;
+	padding: 20px;
+	overflow-y: auto;
+	background-color: #f6f6f6;
+}
+
+.mt-content>div {
+	height: 100%;
+}
+
+.mt-header {
+	background-color: #FFF;
+	margin-bottom: 0px;
+    border-radius: 0px;
+    /*border-color: #FFF;*/
+    border-width: 0px;
+    width: 100%;
+}
+
+/*styling navbar button the button is 34px in height, logo is 60px in height*/
+.mt-header button.navbar-toggle {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	border-width: 0px;
+	padding: 10px 10px;
+}
+
+.mt-footer button.navbar-toggle {
+	/*margin-top: 18px;*/
+	/*margin-bottom: 18px;*/
+	border-width: 0px;
+	padding: 10px 10px;
+}
+
+
+/*grill transition*/
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+	background-color: #FFF;
+}
+
+.navbar-default .navbar-toggle>span {
+	transition: all .5s linear;
+}
+.navbar-default .navbar-toggle:focus>span,
+.navbar-default .navbar-toggle:hover>span {
+	background-color: #000;
+}
+
+/*styling header logo icon*/
+.mt-header .mt-logo-icon {
+	position: relative;
+    z-index: 2; /*to ensure that it is above the .mt-logo-text*/
+    width: 150px;
+    height: 40px;
+    padding: 0px;
+    margin: 15px 15px; /*margin for logo icon*/
+    background-image: url(logo/mintone-logo-horizontal-icon.png);
+    background-size: auto 100%;
+    background-position: 0% 20%;
+    background-repeat: no-repeat;
+
+    /*to prevent flickering*/
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
+}
+
+/*styling header logo text*/
+.mt-header .mt-logo-text {
+	position: relative;
+    z-index: 1; /*to ensure that it is below the .mt-logo-icon*/
+    left: -125px;
+    width: 150px;
+    height: 40px;
+    padding: 0px;
+    margin: 15px 15px; /*margin for logo text*/
+    background-image: url(logo/mintone-logo-horizontal-text.png);
+    background-size: auto 100%;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+}
+
+/*logo animation defintion*/
+@keyframes logo-icon-animation {
+    0%		{background-position: 0% 0%; background-image: url(logo/mintone-logo-horizontal-icon-animation-1.png);}
+    33%		{background-position: 3% 0%; background-image: url(logo/mintone-logo-horizontal-icon-animation-2.png);}
+    66%		{background-position: 9% 0%; background-image: url(logo/mintone-logo-horizontal-icon-animation-3.png);}
+    100%	{background-position: 12% 0%; background-image: url(logo/mintone-logo-horizontal-icon-animation-4.png);}
+}
+
+/*applying logo animation on hover*/
+.mt-header .mt-logo-icon:hover {
+	animation-name: logo-icon-animation;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+
+
+.mt-footer {
+	background-color: #FFF;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	border-width: 0px;
+	/*border-color: #FFF;*/
+    width: 100%;
+}
+
+/*styling footer text*/
+.mt-footer .navbar-text {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+    padding: 0px 15px;
+	margin: 0px 0px;
+	font-size: 12px;
+}
+
+@media (min-width: 768px){
+	/*Ensures that the menu is on the same row as navbar-text*/
+	.navbar-collapse.collapse {
+    	float: right;
+    }
+
+    /*padding for the navigation text*/
+    .mt-header .navbar-collapse.collapse {
+    	padding-top: 10px;
+    	padding-bottom: 10px;
+    }
+}
+
+
+/*ng-view animation*/
+.view-animate.ng-enter, .view-animate.ng-leave {
+  /*transition: opacity ease-in 1.5s;*/
+}
+
+.view-animate.ng-enter {
+  opacity: 0;
+}
+.view-animate.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.view-animate.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.navbar-footer>ul.social-icons{
+    float: left;
+    margin: 12px 10px;
+    padding:0;
+    list-style: none;
+}
+
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+}
+
+.social-icons a {
+    /*color: #fff;*/
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.social-icon.fa {
+	/*border-style: solid;*/
+    border-radius: 50%;
+    border-color: #000;
+    border-width: 3px;
+    color: #000;
+    margin: 0px 2px;
+    /*height: 32px;
+    width: 32px;*/
+    /*text-align: center;*/
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s ease-in-out;
+    background-color: transparent;
+}
+
+/*when hover over one, all the remaining icons are greyed out*/
+.social-icons:hover a{
+    color: #888;
+}
+
+.fa-facebook {
+	padding: 6px 9px;
+}
+.social-icons .fa-facebook:hover {
+    background-color: #3d5b99;
+    color: #fff;
+}
+.fa-twitter {
+    padding: 6px 6.5px;
+}
+.social-icons .fa-twitter:hover {
+    background-color: #00aced;
+    color: #fff;
+}
+.fa-youtube {
+    padding: 6px 7px;
+}
+.social-icons .fa-youtube:hover {
+    background-color: #e64a41;
+    color: #fff;
+}
+.fa-instagram {
+    padding: 6px 7px;
+}
+.social-icons .fa-instagram:hover {
+    background-color: #8a3ab9;
+    color: #fff;
+}
+.fa-wechat {
+    padding: 6px 5px;
+}
+.social-icons .fa-wechat:hover {
+    background-color: #7bb32e;
+    color: #fff;
+}
+.fa-weibo {
+    padding: 6px 6px;
+}
+.social-icons .fa-weibo:hover {
+    background-color: #df2029;
+    color: #fff;
+}
+
+.fa-google {
+	padding: 6px 7px;
+}
+.social-icons .fa-google:hover {
+	background: linear-gradient(
+	    to right, 
+	    #4285f4 25%, #34a853 25%, 
+	    #34a853 50%, #fbbc05 50%,
+	    #fbbc05 75%, #ea4335 75%,
+	    #ea4335 100%
+	  );
+    color: #fff;
+}
+.fa-apple {
+	padding: 6px 7.5px;
+}
+.social-icons .fa-apple:hover {
+	background-color: #000;
+    color: #fff;
+}
+.fa-soundcloud {
+	padding: 6px 4px;
+}
+.social-icons .fa-soundcloud:hover {
+	background-color: #ff7700;
+    color: #fff;
+}
+.fa-spotify {
+	padding: 6px 7px;
+}
+.social-icons .fa-spotify:hover {
+	background-color: #1ED760;
+    color: #fff;
+}
+.fa-bandcamp {
+	padding: 6px 6px;
+}
+.social-icons .fa-bandcamp:hover {
+	background-color: #61929c;
+    color: #fff;
+}
+
+
+
+
+
+
+
+/*icons without font awesome support*/
+.fa-douban {
+	background-image: url(/stylesheets/social/douban_01.png);
+    background-size: auto 12px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative;
+    /*top: 8px;*/
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+.social-icons .fa-douban:hover {
+	background-image: url(/stylesheets/social/douban_02.png);
+	background-color: #2e963d;
+}
+.social-icons:hover .fa-douban{
+    /*background-image: url(/stylesheets/social/douban_02.png);*/
+}
+.fa-netease {
+	background-image: url(/stylesheets/social/netease_01.png);
+    background-size: auto 14px;
+    background-repeat: no-repeat;
+    background-position: 50% 49%;
+    position: relative;
+    /*top: 8px;*/
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+.social-icons .fa-netease:hover {
+	background-image: url(/stylesheets/social/netease_02.png);
+	background-color: #e92019;
+}
+.fa-qqmusic {
+	background-image: url(/stylesheets/social/qqmusic_01.png);
+    background-size: auto 14px;
+    background-repeat: no-repeat;
+    background-position: 50% 49%;
+    position: relative;
+    /*top: 8px;*/
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+.social-icons .fa-qqmusic:hover {
+	background-image: url(/stylesheets/social/qqmusic_02.png);
+	background-color: #f5cd19;
+}
+.fa-xiami {
+	background-image: url(/stylesheets/social/xiami_01.png);
+    background-size: auto 14px;
+    background-repeat: no-repeat;
+    background-position: 50% 49%;
+    position: relative;
+    /*top: 8px;*/
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+.social-icons .fa-xiami:hover {
+	background-image: url(/stylesheets/social/xiami_02.png);
+	background-color: #ff5e00;
+}
+.fa-streetvoice {
+	background-image: url(/stylesheets/social/streetvoice_01.png);
+    background-size: auto 10px;
+    background-repeat: no-repeat;
+    background-position: 50% 49%;
+    position: relative;
+    /*top: 8px;*/
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+.social-icons .fa-streetvoice:hover {
+	background-image: url(/stylesheets/social/streetvoice_02.png);
+	background-color: #000;
+}
+.fa-taobao {
+	background-image: url(/stylesheets/social/taobao_01.png);
+    background-size: auto 12px; /*use this to size the icon*/
+    background-repeat: no-repeat;
+    background-position: 40% 49%; /*use this ot position the icon*/
+    position: relative;
+    /*top: 8px;*/
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+.social-icons .fa-taobao:hover {
+	background-image: url(/stylesheets/social/taobao_02.png);
+	background-color: #fe6502;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

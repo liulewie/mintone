@@ -1,0 +1,197 @@
+h1 {
+	background-color: yellow;
+}
+
+.mt-carousel, 
+.mt-carousel-wrap,
+.carousel-inner,
+.mt-carousel-slide {
+	height: 100%;
+}
+
+.mt-carousel-slide {
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+}
+
+.mt-carousel img {
+	margin: auto;
+	width: 100%;
+	opacity: 0;
+}
+
+/*load animation*/
+/*@keyframes carousel-load-animation {
+	0%		{opacity: 0;}
+	100%	{opacity: 1;}
+}
+
+.mt-carousel {
+	animation: carousel-load-animation;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+}*/
+
+/*modify carousel control aesthetics */
+/*.carousel-control:focus, .carousel-control:hover {
+	
+}*/
+
+/*.carousel-inner>.item.right-add-active:not(.prev),
+.carousel-inner>.item.right-add-active:not(.active)
+{
+	transition-duration: 0s;
+}*/
+
+.carousel-inner>.item.right-add.prev,
+.carousel-inner>.item.right-add.active,
+.carousel-inner>.item.left-add.next,
+.carousel-inner>.item.left-add.active
+{
+	transition: 
+		transform .6s ease-in-out, 
+		opacity .6s ease-in-out; 
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+
+.carousel-inner>.item.right-add-active.prev,
+.carousel-inner>.item.left-add-active.next{
+	z-index: 1;
+
+	transform: translate3d(0,0,0);
+}
+.carousel-inner>.item.right-add-active.active{
+	transform: translate3d(50%,0,0);
+	opacity: 0.7;
+}
+
+.carousel-inner>.item.left-add-active.active{
+	transform: translate3d(-50%,0,0);
+	opacity: 0.7;
+}
+
+.carousel-inner>.item {
+	/*-webkit-transition: 
+		-webkit-transform .6s ease-in-out, 
+		opacity .6s ease-in-out;
+	-o-transition: 
+		-o-transform .6s ease-in-out, 
+		opacity .6s ease-in-out;
+	transition: 
+		transform 20s ease-in-out, 
+		opacity .6s ease-in-out; 
+
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	-webkit-perspective: 1000px;
+	perspective: 1000px;*/
+
+}
+
+/*styling parallax*/
+/*the slide that is shifted in */
+.carousel-inner>.item.next.left, 
+.carousel-inner>.item.prev.right {
+	/*ensures that the slide moving in is always on top*/
+	/*z-index: 1;
+
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);*/
+}
+
+/*the slide that is shifted out to the left*/
+.carousel-inner>.item.active.left{ 
+
+	/*the 50% creates the parallax effect*/
+	/*-webkit-transform: translate3d(-50%,0,0);
+	transform: translate3d(-50%,0,0);
+	opacity: 0.7;*/
+}
+
+/*the slide that is shifted out to the right*/
+.carousel-inner>.item.active.right{
+
+	/*the 50% creates the parallax effect*/
+	/*-webkit-transform: translate3d(50%,0,0);
+	transform: translate3d(50%,0,0);
+	opacity: 0.7;*/
+}
+
+
+
+
+
+
+/*styling fade in and fade out textboxes*/
+.carousel-caption h5:first-child {
+  animation-delay: .6s;
+}
+
+.carousel-caption h5:nth-child(2) {
+  animation-delay: .8s;
+}
+
+.carousel-caption h5:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.carousel-caption p {
+  animation-delay: 1.2s;
+}
+
+
+/*styling fade in and fade out textboxes*/
+
+/*.carousel-inner>.next .carousel-caption, 
+.carousel-inner>.prev .carousel-caption{
+	display: none;
+}*/
+
+/*@keyframes carousel-caption-animation {
+	0%		{opacity: 0;}
+	100%	{opacity: 1;}
+}*/
+
+.carousel-inner>.item.right-add .carousel-caption,
+.carousel-inner>.item.left-add .carousel-caption
+{
+	/*opacity: 0;*/
+	/*display: block !important;*/
+	/*transition: opacity 20s ease-in-out;*/
+	/*transition-delay: 0.6s;*/
+
+	/*backface-visibility: hidden;
+	perspective: 1000px;*/
+}
+
+.carousel-inner>.item.right-add-active .carousel-caption,
+.carousel-inner>.item.left-add-active .carousel-caption{
+	/*opacity: 1;*/
+}
+
+.carousel-inner>.item.next.left .carousel-caption,
+.carousel-inner>.item.prev.right .carousel-caption
+{
+	/*opacity: 0;*/
+
+	/*animation-name: carousel-caption-animation;
+	animation-duration: .6s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;*/
+}
+
+
+
+
+/*styling carousel indicator*/
+.carousel-indicators li.active {
+	margin: 1px;
+}
+
+.carousel-indicators li {
+	margin: 2px;
+}
+

@@ -1,0 +1,58 @@
+<div class="mt-modal-cover" ng-style="{'background-image':'url('+release.imageURL+')'}"></div>
+<div class="mt-modal-body">
+	<div class="mt-modal-release-name-container">
+		<div class="mt-modal-label"><span>ALBUM</span></div>
+		<div class="mt-modal-release-name-wrap">
+			<span class="mt-modal-release-name">{{release.name|uppercase}}</span>
+			<span ng-if="release.name_alt" class="mt-modal-release-name-alt">/{{release.name_alt|uppercase}}</span>
+		</div>
+	</div>
+	<div class="mt-modal-talent-container">
+		<div class="mt-modal-label"><span>ARTIST</span></div>
+		<div class="mt-modal-talent-wrap">
+			<div class="mt-modal-talent" ng-repeat="talent in release.talent">{{talent | uppercase}}</div>
+		</div>
+	</div>
+	<div class="mt-modal-release-date-container">
+		<div class="mt-modal-label"><span>RELEASE DATE</span></div>
+		<div class="mt-modal-date">{{release.releasedate | date}}</div>
+	</div>
+	<div class="mt-modal-release-formats-container">
+		<div class="mt-modal-label"><span>RELEASE FORMATS</span></div>
+		<div class="mt-modal-formats">{{release.formats | lowercase}}</div>
+	</div>
+	<div class="mt-modal-description-container">
+		<div class="mt-modal-label"><span>DESCRIPTION</span></div>
+		<div class="mt-modal-description-body">{{release.description}}</div>
+	</div>
+	<ol ng-if="release.tracks" class="mt-modal-tracks-container">
+		<div class="mt-modal-label"><span>TRACK LIST</span></div>
+		<li class="mt-track" ng-repeat="track in release.tracks">
+			<span class="mt-track-name">{{track}}</span>
+		</li>
+		<li class="mt-track-empty">
+		</li>
+	</ol>
+	<div class="mt-modal-digital-purchase-container social-icons">
+		<div class="mt-modal-label"><span>DIGITAL PURCHASE</span></div>
+		<div>
+			<a ng-repeat="social in release.purchase_digital" href="{{social.url}}" target="_blank" ng-class="'social-icon fa fa-'+social.name">
+			</a>
+		</div>
+	</div>
+	<div class="mt-modal-physical-purchase-container social-icons">
+		<div class="mt-modal-label"><span>PHYSICAL PURCHASE</span></div>
+		<div>
+			<a ng-repeat="social in release.purchase_physical" href="{{social.url}}" target="_blank" ng-class="'social-icon fa fa-'+social.name">
+			</a>
+		</div>
+	</div>
+	<div class="mt-modal-streaming-container social-icons">
+		<div class="mt-modal-label"><span>STREAMING</span></div>
+		<div>
+			<a ng-repeat="social in release.streamingURL" href="{{social.url}}" target="_blank" ng-class="'social-icon fa fa-'+social.name">
+			</a>
+		</div>
+	</div>
+	<!-- <pre>{{release | json}}</pre> -->
+</div>

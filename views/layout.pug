@@ -2,28 +2,115 @@ doctype html
 html(ng-app='Mintone')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js')
-    script(src='/javascripts/mintone.js')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
-    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css")
-  body
-  	<header>
-            <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Angular Routing Example</a>
-                </div>
+    
+    script(type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js")
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-                </ul>
-            </div>
-            </nav>
-        </header>
-        
-    block content
+    //- AngularJS libraries
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular-resource.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular-route.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular-animate.js')
+    script(src="/lib/angular-inview/angular-inview.js")
+
+    script(src="/lib/angular-ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js")
+
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular-material.js')
+
+    //- AngularMaterial library
+    //- script(src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js")
+
+    script(src='/javascripts/mintone.js')
+
+    //- animation libraries
+    link(rel="stylesheet" href="/lib/magic/magic.css")
+    link(rel='stylesheet' href="/lib/animate/animate.css")
+
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+      
+    //- link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css")
+    link(rel="stylesheet" href="/stylesheets/style.css")
+    link(rel="stylesheet" href="/stylesheets/home.css")  
+    link(rel="stylesheet" href="/stylesheets/talents.css") 
+    //- link(rel="stylesheet" href="/stylesheets/releases.css") 
+    //- link(rel="stylesheet" href="/stylesheets/releaseModal.css") 
+    link(rel="stylesheet" href="/stylesheets/events.css")
+
+  body(ng-controller="NavCtrl")
+    div
+      nav(class="navbar navbar-default mt-header" role="navigation")
+        //- preload the logo image to prevent flickering
+        img(class="mt-preload" src="stylesheets/logo/mintone-logo-horizontal-icon-animation-1.png" alt="")
+        img(class="mt-preload" src="stylesheets/logo/mintone-logo-horizontal-icon-animation-2.png" alt="")
+        img(class="mt-preload" src="stylesheets/logo/mintone-logo-horizontal-icon-animation-3.png" alt="")
+        img(class="mt-preload" src="stylesheets/logo/mintone-logo-horizontal-icon-animation-4.png" alt="")
+
+        div(class="navbar-header")
+          button(type="button" class="navbar-toggle" ng-click="isHeaderCollapsed = !isHeaderCollapsed")
+            span(class="sr-only") Toggle Header Navigation
+            span(class="icon-bar")
+            span(class="icon-bar")
+            span(class="icon-bar")
+          a(class="navbar-brand mt-logo-icon" href="/#/" ng-click="setActive('Home'); exitSequence()")
+          span(class="navbar-brand mt-logo-text" href="/#/")
+        div(class="collapse navbar-collapse" uib-collapse="isHeaderCollapsed")
+          ul(class="nav navbar-nav navbar-right")
+            li
+              //- /#/talents
+              a(href="" ng-click="setActive('talents')" ng-class="{active : activeMenu === 'talents'}") Talents
+            li
+              //- /#/releases
+              a(href="" ng-click="setActive('releases')" ng-class="{active : activeMenu === 'releases'}") Releases
+            li
+              //- /#/events
+              a(href="" ng-click="setActive('events')" ng-class="{active : activeMenu === 'events'}") Events
+
+    //- block content
+    div(class="mt-content" in-view-container)
+      div(ng-view class="view-animate")
+
+    div
+      nav(class="navbar navbar-default mt-footer" role="navigation")
+        div(class="collapse navbar-collapse" uib-collapse="isFooterCollapsed")
+          ul(class="nav navbar-nav navbar-right")
+            li
+              a(href="/#/" ng-click="setActive('About')" ng-class="{active : activeMenu === 'About'}") About
+            li
+              a(href="/#/" ng-click="setActive('Contact')" ng-class="{active : activeMenu === 'Contact'}") Contact
+            li
+              a(href="/#/" ng-click="setActive('License')" ng-class="{active : activeMenu === 'License'}") License
+        div(class="navbar-footer")
+          //- p(class="navbar-text") &copy; Mintone Records 2017
+          ul(class="social-icons")
+            li
+              a(href="" target="_blank" class="social-icon fa fa-facebook")
+                //- i(class="fa fa-facebook")
+              a(href="" target="_blank" class="social-icon fa fa-twitter")
+                //- i(class="fa fa-twitter")
+              a(href="" target="_blank" class="social-icon fa fa-youtube")
+                //- i(class="fa fa-youtube")
+              a(href="" target="_blank" class="social-icon fa fa-instagram")
+                //- i(class="fa fa-instagram")
+              a(href="" target="_blank" class="social-icon fa fa-wechat")
+                //- i(class="fa fa-wechat")
+              a(href="" target="_blank" class="social-icon fa fa-weibo")
+                //- i(class="fa fa-weibo")
+          button(type="button" class="navbar-toggle" ng-click="isFooterCollapsed = !isFooterCollapsed")
+            span(class="sr-only") Toggle Footer Navigation
+            span(class="icon-bar")
+            span(class="icon-bar")
+            span(class="icon-bar")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

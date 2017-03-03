@@ -1,0 +1,229 @@
+.mt-talents {
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mt-talents-carousel{
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch; /*momemtum on touch devices*/
+	white-space: nowrap;
+	text-align: center;
+    flex: 0 0 auto;
+
+	height: 160px;
+	margin: 20px;
+
+	/*position: relative;
+	top: 50%;*/
+
+	/*the flexbox method*/
+		/*min-width: 900px;*/
+		/*display: flex;*/
+		/*flex-direction: row;*/
+		/*justify-content: center;*/
+		/*align-items: center;*/
+}
+
+/*animate bubble entering using directive*/
+.mt-talent-bubble {
+	display: inline-block;
+	position: relative;
+	margin: 40px 15px 0px 15px;
+	opacity: 0;
+	height: 120px;
+
+	transition: all .5s ease-in-out;
+}
+.mt-talent-bubble.mt-enter {
+	opacity: 1;
+	animation-name: slideRightReturn;
+}
+
+
+.mt-talent-bubble-inner{
+	position: relative;
+	height: 120px;
+	width: 120px;
+
+	transition: all .3s ease-out;
+}
+
+/*bubble text: talent location*/
+.mt-talent-bubble>p {
+    position: absolute;
+    top: 100px;
+    /*left: 0;*/
+    margin: auto;
+    z-index: -1;
+    width: 90%;
+    text-align: center;
+
+    border-radius: 5px;
+    color: transparent;
+    /*background-color: #fff;*/
+    /*text-shadow: 2px 2px 2px #333;*/
+    font-family: "Zona Pro Bold", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+    font-weight: 900;
+    transition: all .3s ease-out;
+}
+
+/*talent location animation*/
+.mt-talent-bubble:hover>p {
+    /*background-color: #6ad1e3;*/
+    color: #fff;
+    background-color: #777;
+}
+
+
+
+
+/*bubble text: talent name*/
+.mt-talent-bubble-inner>p {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	line-height: 120px;
+	text-align: center;
+	margin: 0px;
+
+	color: transparent;
+	background-color: rgba(255,255,255,0);
+	font-family: "Zona Pro Bold", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+	font-weight: 900;
+
+	transition: all .3s ease-out;
+}
+
+/*talent name animation*/
+.mt-talent-bubble:hover>.mt-talent-bubble-inner>p {
+	/*display: block;*/
+	color: #fff;
+	background-color: rgba(255,255,255,0.8);
+	text-shadow: 2px 2px 2px #333;
+	/*background-color: #fff;*/
+}
+
+.mt-talent-bubble-inner>img {
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+
+	transition: all .3s ease-out;
+}
+
+.mt-talent-bubble:hover>.mt-talent-bubble-inner>img {
+	/*filter: blur(3px);*/
+}
+	
+
+/*styling hover effects*/
+.mt-talent-bubble.active>.mt-talent-bubble-inner,
+.mt-talent-bubble:hover>.mt-talent-bubble-inner {
+	transform: translateY(-40px);
+	text-decoration: none;
+
+	/*transform: scale(1.1);*/
+	/*margin: 15px 20px;*/
+
+    /*box-shadow: inset 0 0 0 25px #53a7ea;*/
+    /*animation: swing 1s ease;*/
+    /*animation-iteration-count: 1;*/
+}
+
+
+
+
+
+
+/*removes scroll bar*/
+.mt-talents-carousel::-webkit-scrollbar {
+	display: none;
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+.mt-talents-carousel::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+
+a:focus, a:hover {
+    /*color: #23527c;*/
+    text-decoration: none;
+}
+
+
+/*animate bubble entering using nganimate*/
+/*.mt-talent-bubble.ng-enter{
+	transition: all 1s ease-in-out;
+	opacity: 0;
+}
+
+.mt-talent-bubble.ng-enter.ng-enter-active {
+	opacity: 1;
+}*/
+
+
+.mt-talent-wrapper,
+.mt-talent-profile {
+    overflow: scroll;
+}
+
+/*animate profile box*/
+.mt-talent-profile.ng-hide-remove {
+	/*animation-name: tinDownIn;*/
+	transition: all .3s ease-in-out;
+	opacity: 0;
+}
+.mt-talent-profile.ng-hide-remove-active {
+	opacity: 1;
+}
+
+.mt-talent-profile.ng-hide-add {
+	transition: all .3s ease-in-out;
+	opacity: 1;
+}
+.mt-talent-profile.ng-hide-add-active {
+	opacity: 0;
+}
+
+
+
+
+.mt-talent-wrapper.ng-hide-remove {
+	transition: all .3s ease;
+	height: 0px;
+}
+.mt-talent-wrapper.ng-hide-remove-active {
+	height: 100%;
+}
+
+.mt-talent-wrapper.ng-hide-add {
+	transition: all .3s ease;
+	height: 100%;
+}
+.mt-talent-wrapper.ng-hide-add-active {
+	height: 0px;
+}
+
+
+
+
+/*styling social icon in profile*/
+.mt-talent-profile .social-icons {
+	margin: 12px 12px;
+    padding:0;
+    list-style: none;
+}
+
+
+

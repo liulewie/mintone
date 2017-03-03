@@ -1,10 +1,28 @@
-<h1>Home Page</h1>
 
-<ul>
-    <li ng-repeat='item in news'>
-    	<p>{{item.title}}</p>
-    	<p>{{item.date}}</p>
-    	<p>{{item.text}}</p>
-    </li>
+<div class="mt-carousel">
+	<div class="mt-carousel-wrap" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" no-transition="false">
+	 	<div class="mt-carousel-slide" uib-slide ng-repeat="slide in slides | orderBy:slide.id | limitTo:limit" index="slide.id" ng-style="{'background-image':'url('+slide.imageURL+')'}">
+			<!-- <img class="mt-preload" ng-src="{{slide.imageURL}}" alt="Slide {{slide.id}}"> -->
+			<div class="carousel-caption">
+				<!-- <h5 class="animated fadeInUp">Slide {{slide.id}}</h5> -->
+				<h5 class="animated fadeInUp">{{slide.title}}</h5>
+				<h5 class="animated fadeInUp">Date: {{slide.date | date}}</h5>
+				<p class="animated fadeInUp">{{slide.text}}</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-</ul>
+  
+<!-- <h1>Home Page</h1> -->
+<!-- <ul>
+	<li ng-repeat='slide in slides'>
+		<p>_id: {{slide._id}}</p>
+		<p>id: {{slide.id}}</p>
+		<p>title: {{slide.title}}</p>
+		<p>date: {{slide.date}}</p>
+		<p>text: {{slide.text}}</p>
+		<p>imageURL: {{slide.imageURL}}</p>
+	</li>
+
+</ul> -->

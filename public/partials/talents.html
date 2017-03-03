@@ -1,0 +1,36 @@
+<div class="mt-talents" ng-style="{'background-image':'url('+activeTalentBackgroundURL+')'}">
+	<div class=" mt-talents-carousel">
+		<a class="mt-talent-bubble magictime" ng-repeat="talent in talents" ng-click="setActive($index)" ng-class="{active : activeTalent === talent.name}" href="" mt-enter index="{{$index}}">
+			<div class="mt-talent-bubble-inner">
+				<img ng-src="{{talent.imageURL}}" alt="{{talent.name}}">
+				<p>{{talent.name}}</p>
+			</div>
+			<p>{{talent.location}}</p>
+		</a>
+	</div>
+	<div class="mt-talent-wrapper" ng-show="activeTalent!=='none'">
+		<div class="mt-talent-profile" ng-repeat="talent in talents|orderBy:name" ng-show="activeTalent===talent.name" >
+			<ul class="social-icons">
+				<li>
+					<a ng-repeat="social in talent.socialURL" href="{{social.url}}" target="_blank" ng-class="'social-icon fa fa-'+social.name">
+					</a>
+				</li>
+			</ul>
+			<ul class="social-icons">
+				<li>
+					<a ng-repeat="stream in talent.streamingURL" href="{{stream.url}}" target="_blank" ng-class="'social-icon fa fa-'+stream.name">
+						<!-- <img ng-if="stream.name==='douban' || stream.name==='netease' || stream.name==='qqmusic' || stream.name==='xiami'" ng-src="/stylesheets/social/{{stream.name}}.svg"> -->
+					</a>
+				</li>
+			</ul>
+			<pre>{{talent | json}}</pre>
+		</div>
+	</div>
+
+	<!-- <div uib-collapse="activeTalent==='none'">
+		<div class="well well-lg">Some content</div>
+		<div class="mt-talent-profile" ng-repeat="talent in talents" ng-show="activeTalent===talent.name" >
+			<pre>{{talent | json}}</pre>
+		</div>
+	</div> -->
+</div>

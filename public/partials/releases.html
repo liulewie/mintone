@@ -1,0 +1,13 @@
+<div class="mt-releases" >
+	<div mt-enter index="{{$index}}" class="mt-release magictime" ng-repeat="release in releases" ng-click="open($index)" in-view="release.isinview = $inview" ng-class="{isinview: release.isinview}" >
+		<!-- album covers should be at least 250px. album picture with smaller width is centered-->
+		<div class="mt-cover" ng-style="{'background-image':'url('+release.thumbnailMediumURL+')'}">
+		</div>
+		<span class="mt-label label label-default">{{release.labelText | uppercase}}</span>
+		<div class="mt-info">
+			<p class="mt-album-name">{{release.name | uppercase}}</p>
+			<p class="mt-album-talent">{{arrayToString(release.talent) | uppercase}}</p>
+		</div>
+		<!-- <pre>{{release|json}}</pre> -->
+	</div>
+</div>

@@ -1,0 +1,200 @@
+.mt-events {
+	/*display: flex;
+	flex-direction: column;*/
+
+	height: inherit;
+
+}
+
+.mt-event {
+	opacity: 0;
+	padding: 10px 30px;
+}
+
+/*loading animation*/
+.mt-event.mt-enter {
+	opacity: 1;
+	animation-name: boingInUp;
+	/*animation-name: vanishIn;*/
+}
+
+.mt-event.mt-exit {
+	animation-name: spaceOutUp;
+}
+
+.mt-event-heading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	overflow: scroll;
+}
+
+.mt-event-heading>.mt-heading-tickets,
+.mt-event-heading>.mt-heading-main {
+	flex: 1 1 auto;
+}
+
+.mt-event-heading>.mt-heading-tickets {
+	min-width: 50px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    margin: 0px 10px;
+}
+
+.mt-event-heading>.mt-heading-main {
+	width: 100%;
+}
+
+.mt-heading-main-wrapper{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: "Zona Pro Bold";
+    color: #000;
+}
+
+.mt-heading-main-wrapper>*{
+	height: 26px;
+	line-height: 26px;
+	flex: 1 1 auto;
+	margin: 0px 5px;
+	
+}
+
+.mt-heading-talent-wrapper {
+	flex: 1 1 auto;
+	width: 120px;
+	max-width: 180px;
+	overflow: hidden;
+	/*text-overflow: ellipsis;*/
+	white-space: nowrap;
+}
+
+.mt-event-talent {
+	background-color: #000;
+    color: #fff;
+    padding: 5.5px 10px;
+    margin: 0px 5px;
+}
+
+.mt-event-date {
+	width: 80px;
+	max-width: 140px;
+
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mt-event-title {
+	width: 150px;
+
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mt-event-location {
+	width: 80px;
+	max-width: 120px;
+
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mt-event-details{
+	margin: 5px;
+    padding: 5px;
+    border-top: solid;
+    border-top-color: #888;
+    font-family: futura, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+    font-size: 13px;
+    font-weight: normal;
+    
+    display: flex;
+    flex-direction: column;
+
+    /*to hide the content when expanding*/
+    
+}
+
+.mt-event-details .mt-wrapper {
+	display: flex;
+}
+
+.mt-event-details .mt-label {
+	background-color: #888;
+    color: #fff;
+    padding: 5.5px 10px;
+    /* margin: 0px 5px; */
+    min-width: 100px;
+    font-size: 14px;
+}
+
+.mt-event-details .mt-content {
+	padding: 10px;
+}
+
+.mt-event-details-animation-wrap {
+	/*height: inherit;*/
+	overflow-y: scroll;
+    /*max-height: 200px;*/
+}
+
+
+.mt-event-details-animation-wrap.ng-hide-remove {
+	/*transition: all .3s linear;*/
+	/*max-height: 0px;*/
+	/*opacity: 0;*/
+
+}
+.mt-event-details-animation-wrap.ng-hide-remove-active {
+	/*opacity: 1;*/
+	/*max-height: 200px;*/
+
+}
+
+.mt-event-details-animation-wrap.ng-hide-add {
+	/*transition: all .3s linear;*/
+	/*max-height: 200px;*/
+	/*opacity: 1;*/
+}
+.mt-event-details-animation-wrap.ng-hide-add-active {
+	/*opacity: 0;*/
+	/*max-height: 0px;*/
+}
+
+a:focus, a:hover {
+    /*color: #23527c;*/
+    text-decoration: none;
+}
+
+
+
+
+.view-animate.ng-leave .mt-event.mt-exit {
+	/*animation-name: spaceOutUp;*/
+}
+.view-animate.ng-leave.ng-leave-active .mt-event.mt-exit {
+	/*opacity: 0;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
